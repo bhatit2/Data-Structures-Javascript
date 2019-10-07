@@ -52,3 +52,19 @@ LinkedList.prototype.printMiddle = function(){
 	console.log(slowRef.value);
 }
 ```
+
+### Get Nth node in a LinkedList
+```
+LinkedList.prototype.getNthNode = function(n){
+	let current = this.root;
+	let i = 0;
+	while(current !== null){
+        if(n === i){
+        	return current.value;
+        }
+		current = current.next;
+		i++;
+	}
+	return "not found";
+}
+```
