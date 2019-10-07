@@ -45,10 +45,6 @@ LinkedList.prototype.deleteValue = function(value){
 LinkedList.prototype.printMiddle = function(){
 	let slowRef = this.root;
 	let fastRef = this.root;
-	if(fastRef.next === null){
-		console.log(current.value);
-		return;
-	}
 	while( fastRef !== null && fastRef.next !== null){
 		slowRef = slowRef.next;
 		fastRef = fastRef.next.next;
