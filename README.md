@@ -13,3 +13,28 @@ LinkedList.prototype.getSize = function(){
     return count;
 }
 ```
+
+### Delete value from Linked List
+```
+LinkedList.prototype.deleteValue = function(value){
+	let current = this.root;
+	if(current === null){
+		return new Error("cannot delete from an empty list");
+	}
+	if(current.value === value){
+		this.root = current.next;
+		return;
+	}
+	let prev;
+	while(current.next !== null){
+		prev = current;
+		current = current.next;
+		if(current.value === value){
+			let temp = current.next;
+			prev.next = temp;
+			return;
+		}
+	}
+	return "value not found";
+}
+```
