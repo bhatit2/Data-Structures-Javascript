@@ -14,7 +14,7 @@ function Tree() {
 }
 
 Tree.prototype.insert = function preorder(val, node){
-	function insertAt(val, node){
+    function insertAt(val, node){
         if(node == null){
             return new Node(val);
         }
@@ -26,7 +26,7 @@ Tree.prototype.insert = function preorder(val, node){
         }
     	return node;
     }
-	this.root = insertAt(val, this.root);
+    this.root = insertAt(val, this.root);
 }
 
 Tree.prototype.print = function preorder(node = this.root){
