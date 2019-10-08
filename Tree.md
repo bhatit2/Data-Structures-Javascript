@@ -13,15 +13,19 @@ function Tree() {
   this.root = null;
 }
 
-Tree.prototype.insert = function preorder(val, current=this.root){
-    if(current === null){
-	return new Node(val);
+Tree.prototype.insert = function preorder(val, node){
+	function insertAt(val, node){
+        if(node == null){
+            return new Node(val);
+        }
+        if(node.value < val) {
+            node.right = insertAt(val, node.right)       
+        }
+        if(node.value >= val) {
+            node.left = insertAt(val, node.left)
+        }
+    	return node;
     }
-    if(current.value < val) {
-        current.right = preorder(val, current.right)
-    }
-    if(current.value >= val) {
-        current.left = preorder(val, current.left)
-    }
+	this.root = insertAt(val, this.root);
 }
 ```
