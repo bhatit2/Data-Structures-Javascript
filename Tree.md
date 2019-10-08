@@ -28,4 +28,11 @@ Tree.prototype.insert = function preorder(val, node){
     }
 	this.root = insertAt(val, this.root);
 }
+
+Tree.prototype.print = function preorder(node = this.root){
+	if(node == null) return;
+	console.log(node.value);
+	preorder(node.left);
+	preorder(node.right);
+}
 ```
