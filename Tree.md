@@ -59,4 +59,24 @@ Tree.prototype.printPostorder = function postorder(node = this.root){
     console.log(node.value);
 }
 
+Tree.prototype.findMin = function(){
+    let current = this.root;
+    let res;
+    while(current !== null){
+        res = current.value;		
+        current = current.left;
+    }
+    return res;
+}
+
+Tree.prototype.findMax = function(){
+    let current = this.root;
+    let res;
+    while(current !== null){
+        res = current.value;		
+        current = current.right;
+    }
+    return res;
+}
+
 ```
