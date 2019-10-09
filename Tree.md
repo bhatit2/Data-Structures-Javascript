@@ -29,10 +29,25 @@ Tree.prototype.insert = function preorder(val, node){
     this.root = insertAt(val, this.root);
 }
 
-Tree.prototype.print = function preorder(node = this.root){
+Tree.prototype.printPreorder = function preorder(node = this.root){
 	if(node == null) return;
 	console.log(node.value);
 	preorder(node.left);
 	preorder(node.right);
 }
+
+Tree.prototype.printInorder = function inorder(node = this.root){
+	if(node == null) return;
+	inorder(node.left);
+	console.log(node.value);
+	inorder(node.right);
+}
+
+Tree.prototype.printPostorder = function postorder(node = this.root){
+	if(node == null) return;
+	postorder(node.left);
+	postorder(node.right);
+	console.log(node.value);
+}
+
 ```
