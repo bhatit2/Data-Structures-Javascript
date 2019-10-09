@@ -67,3 +67,12 @@ LinkedList.prototype.getNthNode = function(n){
 	return "not found";
 }
 ```
+
+### Print List
+```
+LinkedList.prototype.print = function printNode(node = this.root){
+	if(node == null) return;
+	console.log(node.value);
+	printNode(node.next);
+}
+```
