@@ -13,7 +13,7 @@ function Tree() {
   this.root = null;
 }
 
-Tree.prototype.insert = function preorder(val, node){
+Tree.prototype.insert = function(val, node){
     function insertAt(val, node){
         if(node == null){
             return new Node(val);
