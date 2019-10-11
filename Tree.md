@@ -24,13 +24,16 @@ Tree.prototype.insert = function(value){
     this.root = this.insertAt(this.root, value);
 }
 
-Tree.prototype.search = function(value){
-    let current = this.root;
-    while(current !== null){
-	if(current.value === value) return current;
-	current = (value < current.value) ? current.left : current.right;
-    }
-    return "Not found";
+Tree.prototype.searchAt = function searchAt(value, node){
+    if(node && node.value === value) return node;
+    if(value < node.value && node.left !== null) return searchAt(value, node.left);
+    if(value > node.value && node.right !== null) return searchAt(value, node.right);
+    return "Not Found";
+}
+
+Tree.prototype.search = function(value, node){
+    if(!node) node = this.root;
+    return this.searchAt(value,node);
 }
 
 Tree.prototype.printPreorder = function preorder(node = this.root){
