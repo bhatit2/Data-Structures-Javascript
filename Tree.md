@@ -13,20 +13,15 @@ function Tree() {
   this.root = null;
 }
 
-Tree.prototype.insert = function(val, node){
-    function insertAt(val, node){
-        if(node == null){
-            return new Node(val);
-        }
-        if(node.value < val) {
-            node.right = insertAt(val, node.right)       
-        }
-        if(node.value >= val) {
-            node.left = insertAt(val, node.left)
-        }
-    	return node;
-    }
-    this.root = insertAt(val, this.root);
+Tree.prototype.insertAt = function insertAt(node, value){
+    if(node === null) return new Node(value);
+    if(value < node.value) node.left = insertAt(node.left, value);
+    if(value > node.value) node.right = insertAt(node.right, value);
+    return node;
+}
+
+Tree.prototype.insert = function(value){
+    this.root = this.insertAt(this.root, value);
 }
 
 Tree.prototype.search = function(value){
