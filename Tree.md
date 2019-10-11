@@ -14,7 +14,7 @@ function Tree() {
 }
 ```
 
-### Insert a node
+### Insertion
 
 ```
 Tree.prototype.insertAt = function insertAt(node, value){
