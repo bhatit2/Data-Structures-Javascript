@@ -53,25 +53,25 @@ Tree.prototype.delete = function(value){
 }
 
 Tree.prototype.deleteAt = function deleteAt(value, node, ctx){
-	if(node === null) return node;
-	if(value < node.value) node.left = deleteAt(value, node.left, this);
-	if(value > node.value) node.right = deleteAt(value, node.right, this);
-	if(value === node.value){
-		if(node.left === null && node.right === node) {
-			node = null;
-        } else if(node.left === null){
-			node = node.right;
-			return node;
-		} else if(node.right === null){
-            node = node.left;
-			return node;
-        } else {
-			let temp = ctx.findMin(node.right);
-			node.value = temp.value;
-			node.right = deleteAt(temp.value, node.right);
-		}
-    }
+    if(node === null) return node;
+    if(value < node.value) node.left = deleteAt(value, node.left, this);
+    if(value > node.value) node.right = deleteAt(value, node.right, this);
+    if(value === node.value){
+    if(node.left === null && node.right === node) {
+    	node = null;
+	} else if(node.left === null) {
+	node = node.right;
 	return node;
+	} else if(node.right === null){
+	node = node.left;
+	return node;
+	} else {
+	let temp = ctx.findMin(node.right);
+	node.value = temp.value;
+	node.right = deleteAt(temp.value, node.right);
+    	}
+    }
+    return node;
 }
 ```
 
@@ -140,13 +140,13 @@ Tree.prototype.findMax = function(node){
 
 ```
 Tree.prototype.height = function(){
-	return this.getHeight(this.root);
+    return this.getHeight(this.root);
 }
 
 Tree.prototype.getHeight = function getHeight(node){
-	if(node == null) return 0;
-	let lheight = getHeight(node.left);
-	let rheight = getHeight(node.right);
+    if(node == null) return 0;
+    let lheight = getHeight(node.left);
+    let rheight = getHeight(node.right);
     return (lheight > rheight ? lheight : rheight) + 1;
 }
 ```
