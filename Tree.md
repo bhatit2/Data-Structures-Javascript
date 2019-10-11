@@ -59,24 +59,24 @@ Tree.prototype.printPostorder = function postorder(node = this.root){
     console.log(node.value);
 }
 
-Tree.prototype.findMin = function(){
-    let current = this.root;
-    let res;
-    while(current !== null){
-        res = current.value;		
-        current = current.left;
-    }
-    return res;
+Tree.prototype.findMinNode = function findMinNode(node){
+    if(node.left === null) return node;
+    return findMinNode(node.left);
 }
 
-Tree.prototype.findMax = function(){
-    let current = this.root;
-    let res;
-    while(current !== null){
-        res = current.value;		
-        current = current.right;
-    }
-    return res;
+Tree.prototype.findMin = function(node) {
+    if(!node) node = this.root;
+    return this.findMinNode(node);
+}
+
+Tree.prototype.findMaxNode = function findMaxNode(node) {
+    if(node.right === null) return node;
+    return findMaxNode(node.right);
+}
+
+Tree.prototype.findMax = function(node){
+    if(!node) node = this.root;
+    return this.findMaxNode(node);
 }
 
 ```
