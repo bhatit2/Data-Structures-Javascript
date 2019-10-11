@@ -136,3 +136,18 @@ Tree.prototype.findMax = function(node){
 }
 ```
 
+### Get height of a tree
+
+```
+Tree.prototype.height = function(){
+	return this.getHeight(this.root);
+}
+
+Tree.prototype.getHeight = function getHeight(node){
+	if(node == null) return 0;
+	let lheight = getHeight(node.left);
+	let rheight = getHeight(node.right);
+    return (lheight > rheight ? lheight : rheight) + 1;
+}
+```
+
