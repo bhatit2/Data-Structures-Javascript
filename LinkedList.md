@@ -76,3 +76,19 @@ LinkedList.prototype.print = function printNode(node = this.root){
 	printNode(node.next);
 }
 ```
+
+### Insert End using recursion
+```
+LinkedList.prototype.insertAt = function insertAt(value, node){
+	if(node == null){
+		return new Node(value);
+	} else {
+		node.next = insertAt(value, node.next);
+		return node;
+	}
+}
+
+LinkedList.prototype.insert = function(value, node){
+	this.root = this.insertAt(value, this.root);
+}
+```
