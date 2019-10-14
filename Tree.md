@@ -116,9 +116,8 @@ Tree.prototype.findMinNode = function findMinNode(node){
     return findMinNode(node.left);
 }
 
-Tree.prototype.findMin = function(node) {
-    if(!node) node = this.root;
-    return this.findMinNode(node);
+Tree.prototype.findMin = function() {
+    return this.findMinNode(this.root);
 }
 ```
 
@@ -131,8 +130,7 @@ Tree.prototype.findMaxNode = function findMaxNode(node) {
 }
 
 Tree.prototype.findMax = function(node){
-    if(!node) node = this.root;
-    return this.findMaxNode(node);
+    return this.findMaxNode(this.root);
 }
 ```
 
